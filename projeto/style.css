@@ -6,10 +6,16 @@
 
 body {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     background-color: #f7f7f7;
+}
+
+.project-title {
+    margin-bottom: 2rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .calculator {
@@ -21,7 +27,7 @@ body {
     overflow: hidden;
 }
 
-.result {
+.visor {
     height: 75px;
     padding: 20px;
     text-align: right;
