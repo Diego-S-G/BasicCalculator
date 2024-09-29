@@ -1,4 +1,4 @@
-const result = document.querySelector('.visor');
+const result = document.querySelector('.display');
 const buttons = document.querySelectorAll('.buttons button');
 
 let currentNumber = "";
@@ -11,7 +11,7 @@ function updateResult(originClear = false) {
 
     if (displayValue.length > 12) {
         let number = parseFloat(currentNumber.replace(',', '.'));
-        displayValue = number.toExponential(5).replace('.', ',').replace('e', 'e');
+        displayValue = number.toExponential(5).replace('.', ',');
     }
 
     result.innerText = displayValue;
@@ -123,7 +123,7 @@ buttons.forEach((button) => {
         } else if (buttonText === '%') {
             setPercentage();
         } else if (buttonText === ',') {
-            addDigit(',');
+            addDigit(buttonText);
         }
     });
 });
