@@ -114,20 +114,33 @@ buttons.forEach((button) => {
     button.addEventListener("click", () => {
         const buttonText = button.innerText.trim();
 
-        if (/^[0-9]+$/.test(buttonText)) {
-            addDigit(buttonText);
-        } else if (['+', '-', 'x', '÷'].includes(buttonText)) {
-            setOperator(buttonText);
-        } else if (buttonText === '=') {
-            calculate();
-        } else if (buttonText === 'AC') {
-            clearCalculator();
-        } else if (buttonText === '±') {
-            toggleSign();
-        } else if (buttonText === '%') {
-            setPercentage();
-        } else if (buttonText === '.') {
-            addDigit(buttonText);
+        switch (buttonText) {
+            case '+':
+            case '-':
+            case 'x':
+            case '÷':
+                setOperator(buttonText);
+                break;
+            case '=':
+                calculate();
+                break;
+            case 'AC':
+                clearCalculator();
+                break;
+            case '±':
+                toggleSign()
+                break;
+            case '%':
+                setPercentage();
+                break;
+            case '.':
+                addDigit(buttonText);
+                break;
+            default:
+                if (/^[0-9]+$/.test(buttonText)) {
+                    addDigit(buttonText);
+                }
+                break;
         }
     });
 });
