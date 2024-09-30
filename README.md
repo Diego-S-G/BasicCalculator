@@ -14,13 +14,13 @@
 <br/>
 <br/>
 
-## A Calculadora é assim:
+## A Calculadora:
 <br/>
 
 ![image](https://github.com/user-attachments/assets/2aea32ac-22a9-45e5-8685-2a2ef0ebd865)
 <br/>
 
-## Calculadora Funcionando:
+## Funcionamento da Calculadora:
 <br/>
 
 https://github.com/user-attachments/assets/270fa242-5f3f-41fc-998f-49ff115d908e
