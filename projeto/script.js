@@ -10,7 +10,7 @@ function updateResult(originClear = false) {
     let displayValue = originClear ? '0' : currentNumber.replace('.', ',');
 
     if (displayValue.length > 12) {
-        let number = parseFloat(currentNumber.replace(',', '.'));
+        let number = parseFloat(currentNumber);
         displayValue = number.toExponential(5).replace('.', ',');
     }
 
@@ -18,12 +18,12 @@ function updateResult(originClear = false) {
 }
 
 function addDigit(digit) {
-    if (digit === ',') {
+    if (digit === '.') {
 
         if (!currentNumber) {
-            currentNumber = '0,';
-        } else if (!currentNumber.includes(',')) {
-            currentNumber += ',';
+            currentNumber = '0.';
+        } else if (!currentNumber.includes('.')) {
+            currentNumber += '.';
         }
     } else {
         if (restart) {
@@ -41,7 +41,7 @@ function setOperator(newMathOperator) {
     if (currentNumber) {
         calculate();
 
-        firstNumericalOperator = parseFloat(currentNumber.replace(',', '.'));
+        firstNumericalOperator = parseFloat(currentNumber);
         currentNumber = '';
     }
 
@@ -54,7 +54,7 @@ function calculate() {
         return;
     }
 
-    let secondNumericalOperator = parseFloat(currentNumber.replace(',', '.'));
+    let secondNumericalOperator = parseFloat(currentNumber);
     let finalValue;
 
     switch (mathematicalOperator) {
@@ -91,11 +91,11 @@ function clearCalculator() {
 }
 
 function setPercentage() {
-    let baseValue = parseFloat(currentNumber.replace(',', '.'));
+    let baseValue = parseFloat(currentNumber);
 
     let percentageResult = baseValue / 100;
 
-    currentNumber = percentageResult.toString().replace('.', ',');
+    currentNumber = percentageResult.toString();
 
     updateResult();
 
@@ -122,7 +122,7 @@ buttons.forEach((button) => {
             updateResult();
         } else if (buttonText === '%') {
             setPercentage();
-        } else if (buttonText === ',') {
+        } else if (buttonText === '.') {
             addDigit(buttonText);
         }
     });
