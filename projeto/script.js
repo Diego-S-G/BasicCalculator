@@ -102,6 +102,13 @@ function setPercentage() {
     restart = true;
 }
 
+function toggleSign() {
+    currentNumber = (
+        parseFloat(currentNumber || firstNumericalOperator) * -1
+    ).toString();
+    updateResult();
+}
+
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -116,10 +123,7 @@ buttons.forEach((button) => {
         } else if (buttonText === 'AC') {
             clearCalculator();
         } else if (buttonText === '±') {
-            currentNumber = (
-                parseFloat(currentNumber || firstNumericalOperator) * -1
-            ).toString();
-            updateResult();
+            toggleSign();
         } else if (buttonText === '%') {
             setPercentage();
         } else if (buttonText === '.') {
