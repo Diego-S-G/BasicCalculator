@@ -19,21 +19,21 @@ function updateResult(originClear = false) {
 
 function addDigit(digit) {
     if (digit === '.') {
-
-        if (!currentNumber) {
+        if (restart) {
             currentNumber = '0.';
         } else if (!currentNumber.includes('.')) {
+            currentNumber = currentNumber || '0';
             currentNumber += '.';
         }
     } else {
         if (restart) {
             currentNumber = digit;
-            restart = false;
         } else {
             currentNumber += digit;
         }
     }
 
+    restart = false;
     updateResult();
 }
 
